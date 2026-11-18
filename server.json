@@ -1,0 +1,9 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.olegsher-ds-2025/mcp-il-innovation",
+  "title": "Israel Innovation Authority Programs",
+  "description": "Israel Innovation Authority programs: funding tracks, matching, open-call links",
+  "repository": { "url": "https://github.com/olegsher-ds-2025/mcp-il-innovation", "source": "github" },
+  "version": "0.1.0",
+  "packages": [ { "registryType": "pypi", "identifier": "mcp-il-innovation", "version": "0.1.0", "transport": { "type": "stdio" } } ]
+}

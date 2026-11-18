@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-il-innovation"
+version = "0.1.0"
+description = "Israel Innovation Authority (רשות החדשנות) programs for AI assistants: funding tracks, collaboration programs, program matching and where open calls are published"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Oleg Sher" }]
+keywords = ["mcp", "israel", "innovation-authority", "grants", "startups", "model-context-protocol"]
+dependencies = ["fastmcp>=2.0", "httpx>=0.27"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+mcp-il-innovation = "mcp_il_innovation.server:main"
+
+[project.urls]
+Repository = "https://github.com/olegsher-ds-2025/mcp-il-innovation"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_il_innovation"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["live: loads the official llm.txt (run with -m live)"]
+addopts = "-m 'not live'"
